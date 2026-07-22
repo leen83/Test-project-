@@ -4,81 +4,79 @@ import { menu } from "@/data/menu";
 export const Route = createFileRoute("/menu")({
   head: () => ({
     meta: [
-      { title: "Menu — Ritual Café & Studio" },
-      { name: "description", content: "Breakfast, brunch, mains, specialty coffee, matcha, smoothies and desserts at Ritual Café & Studio." },
-      { property: "og:title", content: "Menu — Ritual Café & Studio" },
-      { property: "og:description", content: "Specialty coffee, holistic food and seasonal brunch." },
-      { property: "og:url", content: "/menu" },
+      { title: "Menu — Luma House Café" },
+      {
+        name: "description",
+        content:
+          "A fictional sample café menu created for the Luma House portfolio website.",
+      },
     ],
-    links: [{ rel: "canonical", href: "/menu" }],
   }),
   component: MenuPage,
 });
 
-
 function MenuPage() {
   return (
-    <>
-      <section className="pt-36 pb-12 md:pt-44 md:pb-16 px-6 md:px-10 text-center">
-        <p className="text-[14px] uppercase tracking-[0.4em] text-taupe">The Menu</p>
-        <h1 className="mt-6 font-display text-5xl md:text-7xl leading-[1.05]">
-          A seasonal selection,<br />made with care.
-        </h1>
+    <main className="pt-28">
+      <section className="mx-auto max-w-7xl px-6 py-20 text-center md:px-10 md:py-28">
+        <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
+          Sample menu
+        </p>
 
-        <nav className="mt-12 flex flex-wrap justify-center gap-x-6 gap-y-3 text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
-          {menu.map((s) => (
-            <a
-              key={s.title}
-              href={`#${slug(s.title)}`}
-              className="hover:text-foreground transition-colors duration-300"
-            >
-              {s.title}
-            </a>
-          ))}
-        </nav>
+        <h1 className="mt-5 font-display text-7xl md:text-8xl">Menu</h1>
+
+        <p className="mx-auto mt-6 max-w-xl leading-8 text-muted-foreground">
+          All names, descriptions and prices on this page are fictional and
+          created only for this portfolio concept.
+        </p>
       </section>
 
-    
+      <section className="mx-auto max-w-5xl px-6 pb-28 md:px-10 md:pb-36">
+        <div className="space-y-20">
+          {menu.map((section) => (
+            <div key={section.title}>
+              <div className="flex items-center gap-5">
+                <h2 className="font-display text-4xl md:text-5xl">
+                  {section.title}
+                </h2>
 
-      <div className="mx-auto max-w-6xl px-6 md:px-10 pb-32">
-        {menu.map((section) => (
-          <section key={section.title} id={slug(section.title)} className="scroll-mt-28 mb-24">
-            <div className="mb-10 border-b border-border pb-6">
-              <h2 className="font-display text-4xl md:text-5xl">{section.title}</h2>
+                <div className="h-px flex-1 bg-border" />
+              </div>
+
+              <div className="mt-9 grid gap-x-12 gap-y-8 md:grid-cols-2">
+                {section.items.map((item) => (
+                  <article
+                    key={item.name}
+                    className="border-b border-border pb-6"
+                  >
+                    <div className="flex items-start justify-between gap-5">
+                      <div>
+                        <h3 className="text-base font-medium">
+                          {item.name}
+
+                          {item.popular && (
+                            <span className="ml-3 text-[9px] uppercase tracking-[0.25em] text-taupe">
+                              Popular
+                            </span>
+                          )}
+                        </h3>
+
+                        {item.description && (
+                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                            {item.description}
+                          </p>
+                        )}
+                      </div>
+
+                      <p className="shrink-0 text-sm">{item.price}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
-
-            <div className="grid gap-x-14 gap-y-8 md:grid-cols-2">
-              {section.items.map((item) => (
-                <article key={item.name} className="border-b border-border/70 pb-7">
-                  <div className="flex items-baseline justify-between gap-6">
-                    <h3 className="font-display text-2xl leading-tight">
-                      {item.name}
-                      {item.popular && (
-                        <span className="ml-3 align-middle text-[9px] uppercase tracking-[0.3em] text-[#8b6f47] border border-[#c7a46b]/60 bg-[#d8c09a]/20 px-2 py-0.5 rounded-full">
-  popular
-</span>
-                      )}
-                    </h3>
-                    <span className="shrink-0 text-sm tracking-wide text-foreground">
-                      {item.price}
-                    </span>
-                  </div>
-
-                  {item.description && (
-                    <p className="mt-2 text-sm leading-[1.7] text-muted-foreground">
-                      {item.description}
-                    </p>
-                  )}
-                </article>
-              ))}
-            </div>
-          </section>
-        ))}
-      </div>
-    </>
+          ))}
+        </div>
+      </section>
+    </main>
   );
-}
-
-function slug(s: string) {
-  return s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
