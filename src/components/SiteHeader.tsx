@@ -1,81 +1,78 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-const logoAsset = "/images/Ritual-logo.png";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 
 const links = [
-  { to: "/" as const, label: "Home" },
-  { to: "/about" as const, label: "About" },
-  { to: "/menu" as const, label: "Menu" },
-  { to: "/location" as const, label: "Location" },
-];
+  { label: "Home", to: "/" },
+  { label: "Menu", to: "/menu" },
+  { label: "About", to: "/about" },
+  { label: "Visit", to: "/location" },
+] as const;
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border/60" : "bg-transparent"
-      }`}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10 md:py-5">
-        <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-        <img src={logoAsset} alt="Ritual Café & Studio" className="h-14 w-auto object-contain" />
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/10 bg-background/90 backdrop-blur-md">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
+        <Link
+          to="/"
+          className="font-display text-2xl tracking-wide"
+          onClick={() => setMenuOpen(false)}
+        >
+          Luma House
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
+        <nav className="hidden items-center gap-8 md:flex">
+          {links.map((link) => (
             <Link
-              key={l.to}
-              to={l.to}
-              activeOptions={{ exact: true }}
-              activeProps={{ className: "text-foreground after:w-full" }}
-              inactiveProps={{ className: "text-foreground/70 hover:text-foreground" }}
-              className="relative text-[13px] uppercase tracking-[0.22em] transition-colors duration-300 after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-foreground after:transition-all after:duration-500 hover:after:w-full"
+              key={link.label}
+              to={link.to}
+              className="text-[11px] uppercase tracking-[0.28em] text-foreground/70 transition hover:text-foreground"
+              activeProps={{
+                className:
+                  "text-[11px] uppercase tracking-[0.28em] text-foreground",
+              }}
             >
-              {l.label}
+              {link.label}
             </Link>
           ))}
         </nav>
 
         <button
-          aria-label="Toggle menu"
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setOpen((o) => !o)}
+          type="button"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((current) => !current)}
+          className="flex h-10 w-10 items-center justify-center md:hidden"
         >
-          <span className={`block h-px w-6 bg-foreground transition-transform duration-300 ${open ? "translate-y-[7px] rotate-45" : ""}`} />
-          <span className={`block h-px w-6 bg-foreground transition-opacity duration-300 ${open ? "opacity-0" : ""}`} />
-          <span className={`block h-px w-6 bg-foreground transition-transform duration-300 ${open ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          {menuOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
 
-      {/* Mobile menu */}
-      <div
-        className={`md:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border/60 transition-[max-height,opacity] duration-500 ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="flex flex-col gap-6 px-8 py-8">
-          {links.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              onClick={() => setOpen(false)}
-              className="text-sm uppercase tracking-[0.25em] text-foreground/80"
-            >
-              {l.label}
-            </Link>
-          ))}
+      {menuOpen && (
+        <nav className="border-t border-foreground/10 bg-background px-6 py-8 md:hidden">
+          <div className="flex flex-col gap-6">
+            {links.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => setMenuOpen(false)}
+                className="font-display text-4xl"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-10 text-xs leading-6 text-muted-foreground">
+            Fictional café website created as an independent portfolio concept.
+          </p>
         </nav>
-      </div>
+      )}
     </header>
   );
 }
