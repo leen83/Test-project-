@@ -1,151 +1,145 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Clock, Instagram,Mail, MapPin, Phone } from "lucide-react";
+import { Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
+import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { hours } from "@/data/menu";
 
 export const Route = createFileRoute("/location")({
   head: () => ({
     meta: [
-      { title: "Location — Ritual Café & Studio, Reem Island" },
+      { title: "Visit — Luma House Café" },
       {
         name: "description",
         content:
-          "Visit Ritual Café & Studio at Unit 10, Reem Central Park, Reem Island, Abu Dhabi.",
+          "Fictional location and contact page for the Luma House Café portfolio concept.",
       },
-      { property: "og:title", content: "Visit Ritual Café & Studio" },
-      {
-        property: "og:description",
-        content: "Unit 10, Reem Central Park, Reem Island, Abu Dhabi.",
-      },
-      { property: "og:url", content: "/location" },
     ],
-    links: [{ rel: "canonical", href: "/location" }],
   }),
   component: LocationPage,
 });
 
-const openingHours = [
-  { day: "Monday", time: "7AM – 12AM" },
-  { day: "Tuesday", time: "7AM – 12AM" },
-  { day: "Wednesday", time: "7AM – 12AM" },
-  { day: "Thursday", time: "7AM – 12AM" },
-  { day: "Friday", time: "7AM – 12AM" },
-  { day: "Saturday", time: "7AM – 12AM" },
-  { day: "Sunday", time: "7AM – 12AM" },
-];
-
 function LocationPage() {
   return (
-    <>
-      <section className="pt-36 pb-14 md:pt-44 md:pb-18 px-6 md:px-10 text-center">
-        <p className="text-[13px] uppercase tracking-[0.5em] text-taupe">
+    <main className="pt-28">
+      <section className="mx-auto max-w-7xl px-6 py-20 md:px-10 md:py-28">
+        <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
           Visit
         </p>
 
-        <h1 className="mt-6 font-display text-5xl leading-[1.05] text-foreground md:text-7xl">
-          Reem Central Park,<br />Abu Dhabi.
+        <h1 className="mt-5 max-w-4xl font-display text-6xl leading-tight md:text-8xl">
+          Harbor Quarter,
+          <br />
+          Abu Dhabi.
         </h1>
 
-        <p className="mx-auto mt-7 max-w-2xl text-base leading-[1.8] text-muted-foreground md:text-lg">
-          On the water at Reem Island — a quiet escape, minutes from the city.
+        <p className="mt-7 max-w-xl text-lg leading-8 text-muted-foreground">
+          This address and all contact information are fictional placeholders
+          created only for this portfolio demo.
         </p>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 md:px-10 pb-24">
-        <div className="grid gap-12 md:grid-cols-[1.05fr_0.95fr] md:gap-16">
-          <article className="rounded-sm border border-border bg-secondary/35 p-8 md:p-10">
-            <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
-              Find Us
+      <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 md:grid-cols-[1.1fr_.9fr] md:px-10 md:pb-32">
+        <div className="min-h-[520px]">
+          <ImagePlaceholder label="Location or café exterior image" />
+        </div>
+
+        <div className="space-y-10">
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.35em] text-taupe">
+              Address
             </p>
 
-            <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-5xl">
-              Ritual Café & Studio
-            </h2>
+            <div className="mt-5 flex gap-4 text-muted-foreground">
+              <MapPin className="mt-1 h-5 w-5" />
 
-            <div className="mt-10 space-y-6 text-muted-foreground">
-              <div className="flex items-start gap-4">
-                <span className="rounded-full border border-border p-3 text-taupe">
-                  <MapPin className="h-4 w-4" />
-                </span>
-                <p className="leading-[1.8]">
-                  Unit 10, Reem Central Park<br />
-                  Reem Island, Abu Dhabi
-                </p>
+              <p className="leading-7">
+                Luma House Café
+                <br />
+                Harbor Quarter
+                <br />
+                Abu Dhabi, UAE
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.35em] text-taupe">
+              Contact
+            </p>
+
+            <div className="mt-5 space-y-4 text-muted-foreground">
+              <div className="flex items-center gap-4">
+                <Phone className="h-5 w-5" />
+                <span>050 000 0000</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <span className="rounded-full border border-border p-3 text-taupe">
-                  <Phone className="h-4 w-4" />
-                </span>
-                <a
-                  href="tel:+971502637100"
-                  className="transition-colors hover:text-foreground"
-                >
-                  050 263 7100
-                </a>
+                <Mail className="h-5 w-5" />
+                <span>hello@lumahouse.example</span>
               </div>
-              <div className="flex items-center gap-4">
-  <span className="rounded-full border border-border p-3 text-taupe">
-    <Mail className="h-4 w-4" />
-  </span>
-  <a
-    href="mailto:info@ritualstudio.ae"
-    className="transition-colors hover:text-foreground"
-  >
-    info@ritualstudio.ae
-  </a>
-</div>
 
               <div className="flex items-center gap-4">
-                <span className="rounded-full border border-border p-3 text-taupe">
-                  <Instagram className="h-4 w-4" />
-                </span>
-                <a
-                  href="https://www.instagram.com/ritual.uae"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transition-colors hover:text-foreground"
-                >
-                  @ritual.uae
-                </a>
+                <Instagram className="h-5 w-5" />
+                <span>@lumahouse.cafe</span>
               </div>
             </div>
+          </div>
 
-            <a
-              href="https://maps.google.com/?q=Ritual+Cafe+Studio+Reem+Central+Park+Abu+Dhabi"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-10 inline-flex items-center gap-3 bg-foreground px-7 py-4 text-xs uppercase tracking-[0.3em] text-background transition-all duration-300 hover:bg-foreground/90"
-            >
-              Get Directions
-              <ArrowRight className="h-3.5 w-3.5" />
-            </a>
-          </article>
+          <div>
+            <p className="text-[11px] uppercase tracking-[0.35em] text-taupe">
+              Opening hours
+            </p>
 
-          <article className="rounded-sm border border-border p-8 md:p-10">
-  <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
-    Before You Visit
-  </p>
-
-  <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-5xl">
-    Plan your quiet moment.
-  </h2>
-
-  <ul className="mt-10 space-y-6 text-sm leading-[1.8] text-muted-foreground">
-    <li className="border-b border-border pb-5">
-      Located inside Reem Central Park, close to the waterfront.
-    </li>
-    <li className="border-b border-border pb-5">
-      Open daily from 7AM to 12AM.
-    </li>
-    <li className="border-b border-border pb-5">
-      Ideal for specialty coffee, breakfast, desserts, and slow afternoons.
-    </li>
-    <li>
-      Best reached by searching “Ritual Café & Studio Reem Central Park” on Maps.
-    </li>
-  </ul>
-</article>
+            <div className="mt-5 space-y-3">
+              {hours.map((item) => (
+                <div
+                  key={item.day}
+                  className="flex justify-between border-b border-border pb-3 text-sm"
+                >
+                  <span>{item.day}</span>
+                  <span className="text-muted-foreground">{item.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-    </>
+
+      <section className="bg-secondary/40">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-3 md:px-10 md:py-24">
+          <div>
+            <MapPin className="h-6 w-6 text-taupe" />
+
+            <h2 className="mt-5 font-display text-3xl">Easy to find</h2>
+
+            <p className="mt-3 leading-7 text-muted-foreground">
+              A sample location section ready to be replaced with real business
+              information.
+            </p>
+          </div>
+
+          <div>
+            <Clock className="h-6 w-6 text-taupe" />
+
+            <h2 className="mt-5 font-display text-3xl">Clear hours</h2>
+
+            <p className="mt-3 leading-7 text-muted-foreground">
+              Opening times are displayed clearly and consistently throughout
+              the website.
+            </p>
+          </div>
+
+          <div>
+            <Instagram className="h-6 w-6 text-taupe" />
+
+            <h2 className="mt-5 font-display text-3xl">Connected</h2>
+
+            <p className="mt-3 leading-7 text-muted-foreground">
+              Social and contact links can be connected once the final business
+              details are ready.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
