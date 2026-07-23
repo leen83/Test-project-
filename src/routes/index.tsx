@@ -25,17 +25,17 @@ const featured = [
   {
     title: "Avocado Sourdough",
     text: "Whipped feta, lemon, herbs and chili.",
-    image: "/images/featured-avocado.png",
+    image: "/images/Avocado.PNG",
   },
   {
     title: "Iced Vanilla Latte",
     text: "Smooth espresso, vanilla and cold milk.",
-    image: "/images/featured-latte.png",
+    image: "/images/Coffee.PNG",
   },
   {
     title: "Burnt Cheesecake",
     text: "Creamy centre with a caramelised top.",
-    image: "/images/featured-cheesecake.png",
+    image: "/images/Cheesecake%20.PNG",
   },
 ];
 
@@ -44,8 +44,8 @@ function HomePage() {
     <main>
       <section className="relative min-h-[92vh] overflow-hidden pt-24">
         <img
-          src="/images/hero-cafe.png"
-          alt="Warm modern café interior"
+          src="/images/Luma.PNG"
+          alt="Luma House café exterior"
           className="absolute inset-0 h-full w-full object-cover"
         />
 
@@ -83,8 +83,8 @@ function HomePage() {
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:px-10 md:py-32">
         <div className="min-h-[520px] overflow-hidden">
           <img
-            src="/images/about-cafe.png"
-            alt="Cozy café seating area"
+            src="/images/Seating1.jpeg"
+            alt="Warm café seating area"
             className="h-full w-full object-cover"
           />
         </div>
@@ -163,10 +163,10 @@ function HomePage() {
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {[
-            "/images/gallery-seating.png",
-            "/images/gallery-counter.png",
-            "/images/gallery-pastries.png",
-            "/images/gallery-brunch.png",
+            "/images/Seating3.PNG",
+            "/images/Seating2.PNG",
+            "/images/Pastries.PNG",
+            "/images/Eat.PNG",
           ].map((image, index) => (
             <div key={image} className="aspect-[4/3] overflow-hidden">
               <img
