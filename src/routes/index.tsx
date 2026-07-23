@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Clock, MapPin } from "lucide-react";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { hours } from "@/data/menu";
 
 export const Route = createFileRoute("/")({
@@ -26,14 +25,17 @@ const featured = [
   {
     title: "Avocado Sourdough",
     text: "Whipped feta, lemon, herbs and chili.",
+    image: "/images/featured-avocado.png",
   },
   {
     title: "Iced Vanilla Latte",
     text: "Smooth espresso, vanilla and cold milk.",
+    image: "/images/featured-latte.png",
   },
   {
     title: "Burnt Cheesecake",
     text: "Creamy centre with a caramelised top.",
+    image: "/images/featured-cheesecake.png",
   },
 ];
 
@@ -41,15 +43,17 @@ function HomePage() {
   return (
     <main>
       <section className="relative min-h-[92vh] overflow-hidden pt-24">
-        <div className="absolute inset-0">
-          <ImagePlaceholder label="Hero image — add a wide café interior or exterior photo later" />
-        </div>
+        <img
+          src="/images/hero-cafe.png"
+          alt="Warm modern café interior"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        <div className="absolute inset-0 bg-background/55" />
+        <div className="absolute inset-0 bg-black/35" />
 
         <div className="relative mx-auto flex min-h-[82vh] max-w-7xl items-end px-6 pb-20 md:px-10 md:pb-24">
-          <div className="max-w-3xl fade-in-up">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-foreground/70">
+          <div className="max-w-3xl text-white">
+            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
               Fictional café concept
             </p>
 
@@ -59,7 +63,7 @@ function HomePage() {
               for coffee and time.
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-foreground/75 md:text-lg">
+            <p className="mt-7 max-w-xl text-base leading-8 text-white/80 md:text-lg">
               Luma House is a fictional neighbourhood café created to
               demonstrate a refined, responsive website for a modern small
               business.
@@ -67,7 +71,7 @@ function HomePage() {
 
             <Link
               to="/menu"
-              className="mt-10 inline-flex items-center gap-3 border-b border-foreground pb-2 text-xs uppercase tracking-[0.3em]"
+              className="mt-10 inline-flex items-center gap-3 border-b border-white pb-2 text-xs uppercase tracking-[0.3em]"
             >
               Explore the menu
               <ArrowRight className="h-4 w-4" />
@@ -77,8 +81,12 @@ function HomePage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:px-10 md:py-32">
-        <div className="min-h-[520px]">
-          <ImagePlaceholder label="About image — add a portrait café interior photo later" />
+        <div className="min-h-[520px] overflow-hidden">
+          <img
+            src="/images/about-cafe.png"
+            alt="Cozy café seating area"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="flex items-center">
@@ -121,11 +129,13 @@ function HomePage() {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-3">
-            {featured.map((item, index) => (
+            {featured.map((item) => (
               <article key={item.title}>
-                <div className="aspect-[4/5]">
-                  <ImagePlaceholder
-                    label={`Featured item ${index + 1} — ${item.title}`}
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="h-full w-full object-cover"
                   />
                 </div>
 
@@ -152,21 +162,20 @@ function HomePage() {
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <div className="aspect-[4/3]">
-            <ImagePlaceholder label="Gallery image 1" />
-          </div>
-
-          <div className="aspect-[4/3]">
-            <ImagePlaceholder label="Gallery image 2" />
-          </div>
-
-          <div className="aspect-[4/3]">
-            <ImagePlaceholder label="Gallery image 3" />
-          </div>
-
-          <div className="aspect-[4/3]">
-            <ImagePlaceholder label="Gallery image 4" />
-          </div>
+          {[
+            "/images/gallery-seating.png",
+            "/images/gallery-counter.png",
+            "/images/gallery-pastries.png",
+            "/images/gallery-brunch.png",
+          ].map((image, index) => (
+            <div key={image} className="aspect-[4/3] overflow-hidden">
+              <img
+                src={image}
+                alt={`Luma House gallery image ${index + 1}`}
+                className="h-full w-full object-cover"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
