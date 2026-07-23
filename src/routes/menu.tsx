@@ -55,10 +55,10 @@ function MenuPage() {
                           {item.name}
 
                           {item.popular && (
-                            <span className="ml-3 text-[9px] uppercase tracking-[0.25em] text-taupe">
-                              Popular
-                            </span>
-                          )}
+  <span className="ml-3 inline-flex items-center rounded-full border border-[#b89b5e]/40 bg-[#b89b5e]/10 px-2.5 py-1 text-[9px] font-medium uppercase tracking-[0.22em] text-[#9b7d3f]">
+    Popular
+  </span>
+)}
                         </h3>
 
                         {item.description && (
