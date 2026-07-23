@@ -53,9 +53,7 @@ function HomePage() {
 
         <div className="relative mx-auto flex min-h-[82vh] max-w-7xl items-end px-6 pb-20 md:px-10 md:pb-24">
           <div className="max-w-3xl text-white">
-            <p className="text-[11px] uppercase tracking-[0.42em] text-white/75">
-              Fictional café concept
-            </p>
+            
 
             <h1 className="mt-6 font-display text-6xl leading-[0.95] md:text-8xl">
               A softer place
