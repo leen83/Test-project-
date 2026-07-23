@@ -36,7 +36,7 @@ function AboutPage() {
       <section className="mx-auto grid max-w-7xl gap-8 px-6 pb-24 md:grid-cols-2 md:px-10 md:pb-32">
         <div className="aspect-[4/5] overflow-hidden">
           <img
-            src="/images/about-cafe.png"
+            src="/images/Seating1.jpeg"
             alt="Warm Luma House café interior"
             className="h-full w-full object-cover"
           />
@@ -44,7 +44,7 @@ function AboutPage() {
 
         <div className="aspect-[4/5] overflow-hidden md:mt-24">
           <img
-            src="/images/gallery-brunch.png"
+            src="/images/Eat.PNG"
             alt="Coffee and brunch table at Luma House"
             className="h-full w-full object-cover"
           />
@@ -86,7 +86,7 @@ function AboutPage() {
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr_.9fr] md:px-10 md:py-32">
         <div className="aspect-[16/10] overflow-hidden">
           <img
-            src="/images/hero-cafe.png"
+            src="/images/Seating3.PNG"
             alt="Wide view of the Luma House café interior"
             className="h-full w-full object-cover"
           />
