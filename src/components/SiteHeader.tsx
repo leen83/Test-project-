@@ -13,7 +13,7 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/10 bg-background/90 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-[100] border-b border-foreground/10 bg-background shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-10">
         <Link
           to="/"
@@ -28,7 +28,7 @@ export function SiteHeader() {
             <Link
               key={link.label}
               to={link.to}
-              className="text-[11px] uppercase tracking-[0.28em] text-foreground/70 transition hover:text-foreground"
+              className="text-[11px] uppercase tracking-[0.28em] text-foreground/65 transition hover:text-foreground"
               activeProps={{
                 className:
                   "text-[11px] uppercase tracking-[0.28em] text-foreground",
@@ -67,10 +67,6 @@ export function SiteHeader() {
               </Link>
             ))}
           </div>
-
-          <p className="mt-10 text-xs leading-6 text-muted-foreground">
-            Fictional café website created as an independent portfolio concept.
-          </p>
         </nav>
       )}
     </header>
