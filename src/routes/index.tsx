@@ -83,7 +83,7 @@ function HomePage() {
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:px-10 md:py-32">
         <div className="min-h-[520px] overflow-hidden">
           <img
-            src="/images/Seating1.jpeg"
+            src="/images/Seating2.jpeg"
             alt="Warm café seating area"
             className="h-full w-full object-cover"
           />
