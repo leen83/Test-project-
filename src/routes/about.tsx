@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -35,12 +34,20 @@ function AboutPage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-8 px-6 pb-24 md:grid-cols-2 md:px-10 md:pb-32">
-        <div className="aspect-[4/5]">
-          <ImagePlaceholder label="About page image 1" />
+        <div className="aspect-[4/5] overflow-hidden">
+          <img
+            src="/images/about-cafe.png"
+            alt="Warm Luma House café interior"
+            className="h-full w-full object-cover"
+          />
         </div>
 
-        <div className="aspect-[4/5] md:mt-24">
-          <ImagePlaceholder label="About page image 2" />
+        <div className="aspect-[4/5] overflow-hidden md:mt-24">
+          <img
+            src="/images/gallery-brunch.png"
+            alt="Coffee and brunch table at Luma House"
+            className="h-full w-full object-cover"
+          />
         </div>
       </section>
 
@@ -69,17 +76,20 @@ function AboutPage() {
             </p>
 
             <p>
-              The empty image frames are intentional. Original or properly
-              licensed photographs can be added later without rebuilding the
-              page layout.
+              The photography uses a consistent warm, neutral style to make the
+              concept feel like one complete café brand.
             </p>
           </div>
         </div>
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-[1.1fr_.9fr] md:px-10 md:py-32">
-        <div className="aspect-[16/10]">
-          <ImagePlaceholder label="Wide café lifestyle image" />
+        <div className="aspect-[16/10] overflow-hidden">
+          <img
+            src="/images/hero-cafe.png"
+            alt="Wide view of the Luma House café interior"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="flex items-center">
@@ -89,7 +99,7 @@ function AboutPage() {
             </p>
 
             <h2 className="mt-5 font-display text-5xl">
-              Original concept, ready for original imagery.
+              Original concept, created to feel complete.
             </h2>
 
             <p className="mt-6 leading-8 text-muted-foreground">
