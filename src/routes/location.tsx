@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { hours } from "@/data/menu";
 
 export const Route = createFileRoute("/location")({
@@ -38,8 +37,12 @@ function LocationPage() {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 md:grid-cols-[1.1fr_.9fr] md:px-10 md:pb-32">
-        <div className="min-h-[520px]">
-          <ImagePlaceholder label="Location or café exterior image" />
+        <div className="min-h-[520px] overflow-hidden">
+          <img
+            src="/images/location-exterior.png"
+            alt="Luma House café exterior at night"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div className="space-y-10">
@@ -68,17 +71,17 @@ function LocationPage() {
 
             <div className="mt-5 space-y-4 text-muted-foreground">
               <div className="flex items-center gap-4">
-                <Phone className="h-5 w-5" />
+                <Phone className="h-5 w-5 shrink-0" />
                 <span>050 000 0000</span>
               </div>
 
-              <div className="flex items-center gap-4">
-                <Mail className="h-5 w-5" />
-                <span>hello@lumahouse.example</span>
+              <div className="flex items-start gap-4">
+                <Mail className="mt-1 h-5 w-5 shrink-0" />
+                <span className="break-all">hello@lumahouse.example</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-5 w-5 shrink-0" />
                 <span>@lumahouse.cafe</span>
               </div>
             </div>
