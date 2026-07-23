@@ -42,26 +42,25 @@ const featured = [
 function HomePage() {
   return (
     <main>
-      <section className="relative min-h-[92vh] overflow-hidden pt-24">
+      {/* HERO */}
+      <section className="relative min-h-[90vh] overflow-hidden pt-20">
         <img
           src="/images/Luma.PNG"
           alt="Luma House café exterior"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
 
-        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-black/5" />
 
-        <div className="relative mx-auto flex min-h-[82vh] max-w-7xl items-end px-6 pb-20 md:px-10 md:pb-24">
-          <div className="max-w-3xl text-white">
-            
-
-            <h1 className="mt-6 font-display text-6xl leading-[0.95] md:text-8xl">
+        <div className="relative mx-auto flex min-h-[calc(90vh-5rem)] max-w-7xl items-center px-6 py-16 md:px-10">
+          <div className="max-w-2xl text-white">
+            <h1 className="font-display text-5xl leading-[1] sm:text-6xl md:text-7xl lg:text-8xl">
               A softer place
               <br />
               for coffee and time.
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-white/80 md:text-lg">
+            <p className="mt-7 max-w-lg text-base leading-8 text-white/80 md:text-lg">
               Luma House is a fictional neighbourhood café created to
               demonstrate a refined, responsive website for a modern small
               business.
@@ -69,7 +68,7 @@ function HomePage() {
 
             <Link
               to="/menu"
-              className="mt-10 inline-flex items-center gap-3 border-b border-white pb-2 text-xs uppercase tracking-[0.3em]"
+              className="mt-9 inline-flex items-center gap-3 border-b border-white/80 pb-2 text-xs uppercase tracking-[0.3em]"
             >
               Explore the menu
               <ArrowRight className="h-4 w-4" />
@@ -78,6 +77,7 @@ function HomePage() {
         </div>
       </section>
 
+      {/* INTRODUCTION */}
       <section className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:grid-cols-2 md:px-10 md:py-32">
         <div className="min-h-[520px] overflow-hidden">
           <img
@@ -114,9 +114,10 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FEATURED ITEMS */}
       <section className="bg-secondary/40 px-6 py-24 md:px-10 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <div className="max-w-2xl">
+          <div className="text-center">
             <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
               A taste of Luma
             </p>
@@ -126,9 +127,9 @@ function HomePage() {
             </h2>
           </div>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
             {featured.map((item) => (
-              <article key={item.title}>
+              <article key={item.title} className="text-center">
                 <div className="aspect-[4/5] overflow-hidden">
                   <img
                     src={item.image}
@@ -137,9 +138,11 @@ function HomePage() {
                   />
                 </div>
 
-                <h3 className="mt-6 font-display text-3xl">{item.title}</h3>
+                <h3 className="mt-6 font-display text-3xl">
+                  {item.title}
+                </h3>
 
-                <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                <p className="mx-auto mt-3 max-w-xs text-sm leading-7 text-muted-foreground">
                   {item.text}
                 </p>
               </article>
@@ -148,6 +151,7 @@ function HomePage() {
         </div>
       </section>
 
+      {/* GALLERY */}
       <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
         <div className="text-center">
           <p className="text-[11px] uppercase tracking-[0.4em] text-taupe">
@@ -177,6 +181,7 @@ function HomePage() {
         </div>
       </section>
 
+      {/* HOURS */}
       <section className="bg-foreground text-background">
         <div className="mx-auto grid max-w-7xl gap-14 px-6 py-20 md:grid-cols-2 md:px-10 md:py-24">
           <div>
