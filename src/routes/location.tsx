@@ -39,7 +39,7 @@ function LocationPage() {
       <section className="mx-auto grid max-w-7xl gap-12 px-6 pb-24 md:grid-cols-[1.1fr_.9fr] md:px-10 md:pb-32">
         <div className="min-h-[520px] overflow-hidden">
           <img
-            src="/images/location-exterior.png"
+            src="/images/Luma.PNG"
             alt="Luma House café exterior at night"
             className="h-full w-full object-cover"
           />
